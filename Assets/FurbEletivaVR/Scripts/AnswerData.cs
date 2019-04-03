@@ -2,7 +2,7 @@
 using System;
 
 [Serializable]
-public class Answer
+public class AnswerData
 {
     public string Text;
     public bool IsCorrect;

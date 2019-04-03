@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: chocolateQuestion
   m_EditorClassIdentifier: 
   Text: "Quantas barras de chocolate algu\xE9m precisa comer p/ morrer?"
+  Time: 20
   Answers:
   - Text: 20
     IsCorrect: 0
