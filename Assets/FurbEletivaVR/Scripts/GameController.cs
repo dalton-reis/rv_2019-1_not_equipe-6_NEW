@@ -15,6 +15,11 @@ public class IntEvent : UnityEvent<int>
 {
 }
 
+[Serializable]
+public class FloatEvent : UnityEvent<float>
+{
+}
+
 public class GameController : MonoBehaviour
 {
     [Header("Configuration")]
@@ -35,6 +40,7 @@ public class GameController : MonoBehaviour
     public UnityEvent noMoreQuestions = new UnityEvent();
     public QuestionDataEvent newQuestion = new QuestionDataEvent();
     public IntEvent lifeChanged = new IntEvent();
+    public FloatEvent timeChanged = new FloatEvent();
 
     private int currentLife;
     public int CurrentLife
@@ -51,6 +57,18 @@ public class GameController : MonoBehaviour
     }
 
     private float currentTime;
+    public float CurrentTime
+    {
+        get { return currentTime; }
+        private set
+        {
+            if (currentTime == value)
+                return;
+
+            currentTime = value;
+            timeChanged.Invoke(currentTime);
+        }
+    }
 
     private Queue<QuestionData> questionDatabaseQueue;
     private QuestionData currentQuestion;
@@ -78,6 +96,9 @@ public class GameController : MonoBehaviour
         // Setup initial callbacks
         newQuestion.AddListener(NewQuestionCallback);
         lifeChanged.AddListener(LifeChangedCallback);
+        timeChanged.AddListener(TimeChangedCallback);
+        lifeReachedZero.AddListener(LifeReachedZeroCallback);
+        noMoreQuestions.AddListener(NoMoreQuestionsCallback);
 
         currentLife = StartingLife;
         LifeLeft.Text.text = currentLife.ToString();
@@ -90,17 +111,13 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        currentTime -= Time.deltaTime;
+        CurrentTime = Math.Max(0, CurrentTime - Time.deltaTime);
 
-        TimeLeft.Text.text = $"{Math.Floor(currentTime)} {TimeSuffix}";
-
-        if (currentTime < 0)
-            LostQuestion();
-    }
-
-    private void LostQuestion()
-    {
-        CurrentLife--;
+        if (CurrentTime == 0)
+        {
+            if (CurrentLife > 0)
+                CurrentLife--;
+        }
     }
 
     private void NewQuestionCallback(QuestionData questionData)
@@ -108,7 +125,7 @@ public class GameController : MonoBehaviour
         if (questionData == null)
             return;
 
-        currentTime = questionData.Time;
+        CurrentTime = questionData.Time;
 
         TimeLeft.Text.text = $"{questionData.Time} {TimeSuffix}";
         Question.Text.text = questionData.Text;
@@ -132,6 +149,26 @@ public class GameController : MonoBehaviour
             lifeReachedZero.Invoke();
         else // Next Question
             NextQuestion();
+    }
+
+    private void TimeChangedCallback(float time)
+    {
+        TimeLeft.Text.text = $"{Math.Floor(time)} {TimeSuffix}";
+    }
+
+    private void LifeReachedZeroCallback()
+    {
+        Question.Text.text = "";
+
+        foreach (var answer in Answers)
+        {
+            answer.Text.text = "";
+        }
+    }
+
+    private void NoMoreQuestionsCallback()
+    {
+
     }
 
     public void NextQuestion()
