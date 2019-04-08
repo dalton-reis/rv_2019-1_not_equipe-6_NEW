@@ -1,0 +1,3 @@
+[submodule "Assets/NavMeshComponents"]
+	path = Assets/NavMeshComponents
+	url = git@github.com:felaugmar/NavMeshComponents.git
