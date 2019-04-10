@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
 
     public string TimeSuffix = "segundos";
 
+    public WalkablePlane WalkablePlane;
+
     [Header("Text Holders")]
     public TMP_TextHolder TimeLeft;
     public TMP_TextHolder LifeLeft;
@@ -86,12 +88,16 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private Color slotWithoutAnswerColor = new Color32(0, 0, 0, 0);
+    private Color slotWithAnswerColor = new Color32(48, 48, 48, 100);
+
     private void Start()
     {
         Debug.Assert(TimeLeft != null);
         Debug.Assert(LifeLeft != null);
         Debug.Assert(Question != null);
         Debug.Assert(Answers != null);
+        Debug.Assert(WalkablePlane != null);
 
         // Setup initial callbacks
         newQuestion.AddListener(NewQuestionCallback);
@@ -134,11 +140,21 @@ public class GameController : MonoBehaviour
 
         // Clear the answers before setting the new ones
         foreach (var answer in Answers)
+        { 
             answer.Text.text = "";
+            answer.PanelImage.color = slotWithoutAnswerColor;
+        }
 
         // Set the new answers
         for (int i = 0; i < questionData.Answers.Count; i++)
-            Answers[i].Text.text = questionData.Answers[i].Text;
+        {
+            var answer = Answers[i];
+
+            answer.Text.text = questionData.Answers[i].Text;
+            answer.PanelImage.color = slotWithAnswerColor;
+        }
+
+        WalkablePlane.SetFloorSize(questionData.Time * 3);
     }
 
     private void LifeChangedCallback(int life)
@@ -168,7 +184,7 @@ public class GameController : MonoBehaviour
 
     private void NoMoreQuestionsCallback()
     {
-
+        WalkablePlane.SetFloorSize(1);
     }
 
     public void NextQuestion()

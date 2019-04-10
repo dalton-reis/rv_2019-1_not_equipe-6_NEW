@@ -17,13 +17,6 @@ public class WalkablePlane : MonoBehaviour
         navMeshSurface = GetComponent<NavMeshSurface>();
     }
 
-    private void Start()
-    {
-        end.position = Vector3.zero;
-
-        SetFloorSize(1);
-    }
-
     public void SetFloorSize(float units)
     {
         if (units < 1f)
@@ -38,7 +31,7 @@ public class WalkablePlane : MonoBehaviour
 
         // Update the position based on the scale
         var position = transform.localPosition;
-        position.z = (scale.z - 0.2f) * 5f;
+        position.z = (scale.z - 0.2f) * 5f + start.z;
         transform.localPosition = position;
 
         // Build the nav mesh
