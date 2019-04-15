@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
     public QuestionDataEvent newQuestion = new QuestionDataEvent();
     public IntEvent lifeChanged = new IntEvent();
     public FloatEvent timeChanged = new FloatEvent();
+    public UnityEvent timeReachedZero = new UnityEvent();
 
     private int currentLife;
     public int CurrentLife
@@ -71,6 +72,8 @@ public class GameController : MonoBehaviour
             timeChanged.Invoke(currentTime);
         }
     }
+
+    private float timeToAnswer;
 
     private Queue<QuestionData> questionDatabaseQueue;
     private QuestionData currentQuestion;
@@ -102,8 +105,9 @@ public class GameController : MonoBehaviour
         // Setup initial callbacks
         newQuestion.AddListener(NewQuestionCallback);
         lifeChanged.AddListener(LifeChangedCallback);
-        timeChanged.AddListener(TimeChangedCallback);
         lifeReachedZero.AddListener(LifeReachedZeroCallback);
+        timeChanged.AddListener(TimeChangedCallback);
+        timeReachedZero.AddListener(TimeReachedZeroCallback);
         noMoreQuestions.AddListener(NoMoreQuestionsCallback);
 
         currentLife = StartingLife;
@@ -120,10 +124,7 @@ public class GameController : MonoBehaviour
         CurrentTime = Math.Max(0, CurrentTime - Time.deltaTime);
 
         if (CurrentTime == 0)
-        {
-            if (CurrentLife > 0)
-                CurrentLife--;
-        }
+            timeReachedZero.Invoke();
     }
 
     private void NewQuestionCallback(QuestionData questionData)
@@ -132,6 +133,7 @@ public class GameController : MonoBehaviour
             return;
 
         CurrentTime = questionData.Time;
+        timeToAnswer = questionData.AnswerTime;
 
         TimeLeft.Text.text = $"{questionData.Time} {TimeSuffix}";
         Question.Text.text = questionData.Text;
@@ -143,6 +145,7 @@ public class GameController : MonoBehaviour
         { 
             answer.Text.text = "";
             answer.PanelImage.color = slotWithoutAnswerColor;
+            answer.gameObject.SetActive(false);
         }
 
         // Set the new answers
@@ -167,11 +170,6 @@ public class GameController : MonoBehaviour
             NextQuestion();
     }
 
-    private void TimeChangedCallback(float time)
-    {
-        TimeLeft.Text.text = $"{Math.Floor(time)} {TimeSuffix}";
-    }
-
     private void LifeReachedZeroCallback()
     {
         Question.Text.text = "";
@@ -180,6 +178,27 @@ public class GameController : MonoBehaviour
         {
             answer.Text.text = "";
         }
+    }
+
+    private void TimeChangedCallback(float time)
+    {
+        TimeLeft.Text.text = $"{Math.Floor(time)} {TimeSuffix}";
+    }
+
+    private void TimeReachedZeroCallback()
+    {
+        // Active all non-blank answers when `timeToAnswer` starts ticking
+        if (timeToAnswer == CurrentQuestion.AnswerTime)
+            foreach (var answer in Answers)
+                if (answer.Text.text != "")
+                    answer.gameObject.SetActive(true);
+
+        timeToAnswer = Math.Max(0, timeToAnswer - Time.deltaTime);
+
+        // Decrease the life if the time to answer reached zero
+        if (timeToAnswer == 0)
+            if (CurrentLife > 0)
+                CurrentLife--;
     }
 
     private void NoMoreQuestionsCallback()
