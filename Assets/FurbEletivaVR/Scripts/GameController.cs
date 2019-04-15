@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
 
     [Header("Text Holders")]
     public TMP_TextHolder TimeLeft;
+    public TMP_TextHolder AnswerTimeLeft;
     public TMP_TextHolder LifeLeft;
     public TMP_TextHolder Question;
     public List<TMP_TextHolder> Answers;
@@ -97,6 +98,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         Debug.Assert(TimeLeft != null);
+        Debug.Assert(AnswerTimeLeft != null);
         Debug.Assert(LifeLeft != null);
         Debug.Assert(Question != null);
         Debug.Assert(Answers != null);
@@ -140,6 +142,9 @@ public class GameController : MonoBehaviour
 
         Debug.Assert(questionData.Answers.Count <= Answers.Count, $"Too many answers in this question, there are only {Answers.Count} places to put them");
 
+        // Hide the answer time
+        AnswerTimeLeft.gameObject.SetActive(false);
+
         // Clear the answers before setting the new ones
         foreach (var answer in Answers)
         { 
@@ -182,18 +187,25 @@ public class GameController : MonoBehaviour
 
     private void TimeChangedCallback(float time)
     {
-        TimeLeft.Text.text = $"{Math.Floor(time)} {TimeSuffix}";
+        TimeLeft.Text.text = $"{Math.Ceiling(time)} {TimeSuffix}";
     }
 
     private void TimeReachedZeroCallback()
     {
         // Active all non-blank answers when `timeToAnswer` starts ticking
         if (timeToAnswer == CurrentQuestion.AnswerTime)
+        {
+            // Show the answer time
+            AnswerTimeLeft.gameObject.SetActive(true);
+
             foreach (var answer in Answers)
                 if (answer.Text.text != "")
                     answer.gameObject.SetActive(true);
+        }
 
         timeToAnswer = Math.Max(0, timeToAnswer - Time.deltaTime);
+
+        AnswerTimeLeft.Text.text = $"{Math.Ceiling(timeToAnswer)} {TimeSuffix}";
 
         // Decrease the life if the time to answer reached zero
         if (timeToAnswer == 0)
