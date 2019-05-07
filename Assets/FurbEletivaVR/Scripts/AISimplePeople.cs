@@ -8,7 +8,6 @@ public class AISimplePeople : MonoBehaviour
 {
     public UnityEngine.AI.NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
     public SimplePeopleCharacter character { get; private set; } // the character we are controlling
-    public Transform target;                                    // target to aim for
 
 
     private void Start()
@@ -24,18 +23,18 @@ public class AISimplePeople : MonoBehaviour
 
     private void Update()
     {
-        if (target != null)
-            agent.SetDestination(target.position);
+        if (character.CurrentPathPoint.HasValue)
+            agent.SetDestination(character.CurrentPathPoint.Value);
 
-        if (agent.remainingDistance > agent.stoppingDistance)
+
+        if ((agent.destination - gameObject.transform.position).magnitude > agent.stoppingDistance)
             character.Move(agent.desiredVelocity, false, false);
         else
-            character.Move(Vector3.zero, false, false);
-    }
-
-
-    public void SetTarget(Transform target)
-    {
-        this.target = target;
+        {
+            if (character.CurrentPathPoint.HasValue)
+                character.NextPoint();
+            else
+                character.Move(Vector3.zero, false, false);
+        }
     }
 }
