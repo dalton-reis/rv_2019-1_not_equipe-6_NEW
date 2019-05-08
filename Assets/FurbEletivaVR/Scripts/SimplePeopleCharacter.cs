@@ -7,9 +7,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class SimplePeopleCharacter : MonoBehaviour
 {
-    public GameObject Path;
-
-    [Header("Movement specific")]
     [SerializeField] float m_MovingTurnSpeed = 360;
     [SerializeField] float m_StationaryTurnSpeed = 180;
     [SerializeField] float m_JumpPower = 12f;
@@ -30,34 +27,6 @@ public class SimplePeopleCharacter : MonoBehaviour
     Vector3 m_CapsuleCenter;
     CapsuleCollider m_Capsule;
     bool m_Crouching;
-
-    private List<Vector3> path = new List<Vector3>();
-    private int current_path_point_index = 0;
-
-    public Vector3? CurrentPathPoint
-    {
-        get
-        {
-            if (current_path_point_index >= path.Count)
-                return null;
-
-            return path[current_path_point_index];
-        }
-    }
-
-    private void Awake()
-    {
-        List<Transform> path_points = new List<Transform>();
-        Path.GetComponentsInChildren<Transform>(path_points);
-        path_points.RemoveAt(0); // The first will be the transform of the 'walkpath'
-        foreach (var path_point in path_points)
-            path.Add(path_point.position);
-    }
-
-    public void NextPoint()
-    {
-        current_path_point_index++;
-    }
 
     void Start()
     {

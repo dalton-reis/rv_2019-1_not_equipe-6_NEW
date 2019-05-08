@@ -4,11 +4,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
 [RequireComponent(typeof(SimplePeopleCharacter))]
-public class AISimplePeople : MonoBehaviour
+public class AIFollowPersonSimplePeople : MonoBehaviour
 {
     public UnityEngine.AI.NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
     public SimplePeopleCharacter character { get; private set; } // the character we are controlling
 
+    public SimplePeopleCharacter CharacterToFollow;
 
     private void Start()
     {
@@ -23,18 +24,21 @@ public class AISimplePeople : MonoBehaviour
 
     private void Update()
     {
-        if (character.CurrentPathPoint.HasValue)
-            agent.SetDestination(character.CurrentPathPoint.Value);
+        if (CharacterToFollow != null)
+            agent.SetDestination(CharacterToFollow.transform.position);
 
 
         if ((agent.destination - gameObject.transform.position).magnitude > agent.stoppingDistance)
             character.Move(agent.desiredVelocity, false, false);
         else
-        {
-            if (character.CurrentPathPoint.HasValue)
-                character.NextPoint();
-            else
-                character.Move(Vector3.zero, false, false);
-        }
+            character.Move(Vector3.zero, false, false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (CharacterToFollow != null)
+            return; // We are already following a character
+
+        CharacterToFollow = other.GetComponent<SimplePeopleCharacter>();
     }
 }
