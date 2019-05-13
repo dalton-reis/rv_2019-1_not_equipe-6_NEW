@@ -10,6 +10,8 @@ public class AIFollowPathSimplePeople : MonoBehaviour
     public SimplePeopleCharacter character { get; private set; } // the character we are controlling
     public GameObject Path;
 
+    public bool Stop { get; set; }
+
     private List<Vector3> path = new List<Vector3>();
     private int current_path_point_index = 0;
 
@@ -46,6 +48,13 @@ public class AIFollowPathSimplePeople : MonoBehaviour
 
     private void Update()
     {
+        if (Stop)
+        {
+            agent.ResetPath();
+            character.Move(Vector3.zero, false, false);
+            return;
+        }
+
         if (CurrentPathPoint.HasValue)
             agent.SetDestination(CurrentPathPoint.Value);
 

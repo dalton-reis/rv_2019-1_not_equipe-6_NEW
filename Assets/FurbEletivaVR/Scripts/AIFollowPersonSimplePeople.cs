@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
@@ -10,6 +9,8 @@ public class AIFollowPersonSimplePeople : MonoBehaviour
     public SimplePeopleCharacter character { get; private set; } // the character we are controlling
 
     public SimplePeopleCharacter CharacterToFollow;
+
+    public GameObject QuestionCanvas;
 
     private void Start()
     {
@@ -27,7 +28,6 @@ public class AIFollowPersonSimplePeople : MonoBehaviour
         if (CharacterToFollow != null)
             agent.SetDestination(CharacterToFollow.transform.position);
 
-
         if ((agent.destination - gameObject.transform.position).magnitude > agent.stoppingDistance)
             character.Move(agent.desiredVelocity, false, false);
         else
@@ -39,6 +39,10 @@ public class AIFollowPersonSimplePeople : MonoBehaviour
         if (CharacterToFollow != null)
             return; // We are already following a character
 
-        CharacterToFollow = other.GetComponent<SimplePeopleCharacter>();
+        var characterToFollow = other.GetComponent<SimplePeopleCharacter>();
+        other.GetComponent<AIFollowPathSimplePeople>().Stop = true;
+        QuestionCanvas.SetActive(true);
+
+        other.GetComponent<LookAt>().m_Target = transform;
     }
 }
