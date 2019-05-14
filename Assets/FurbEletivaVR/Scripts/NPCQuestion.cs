@@ -17,6 +17,11 @@ public class NPCQuestion : MonoBehaviour
     private void Awake()
     {
         aiFollowPerson = GetComponent<AIFollowPersonSimplePeople>();
+
+        // Make sure to disabled the canvas and every answer at awake
+        aiFollowPerson.QuestionCanvas.SetActive(false);
+        foreach (var answerText in AnswersText)
+            answerText.enabled = false;
     }
 
     private void Start()
@@ -24,7 +29,11 @@ public class NPCQuestion : MonoBehaviour
         QuestionText.text = question.Text;
 
         for (int i = 0; i < question.Answers.Count; i++)
-            AnswersText[i].text = question.Answers[i].Text;
+        {
+            var answerText = AnswersText[i];
+            answerText.enabled = true;
+            answerText.text = question.Answers[i].Text;
+        }
     }
 
     public void AnswerQuestion(int index)
@@ -35,7 +44,8 @@ public class NPCQuestion : MonoBehaviour
         aiFollowPath.Stop = false;
         MainCharacter.GetComponent<LookAt>().m_Target = null;
 
-        aiFollowPerson.QuestionCanvas.SetActive(true);
-        aiFollowPerson.CharacterToFollow = MainCharacter.GetComponent<SimplePeopleCharacter>();
+        aiFollowPerson.QuestionCanvas.SetActive(false);
+        if (isCorrect)
+            aiFollowPerson.CharacterToFollow = MainCharacter.GetComponent<SimplePeopleCharacter>();
     }
 }

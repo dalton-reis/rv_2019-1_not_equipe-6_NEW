@@ -14,6 +14,7 @@ public class SimplePeopleCharacter : MonoBehaviour
     [SerializeField] float m_MoveSpeedMultiplier = 1f;
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     [SerializeField] float m_GroundCheckDistance = 0.1f;
+    public bool HeadFollowCamera = false;
 
     Rigidbody m_Rigidbody;
     Animator m_Animator;
@@ -118,6 +119,22 @@ public class SimplePeopleCharacter : MonoBehaviour
         // update the animator parameters
         m_Animator.SetFloat("Speed_f", m_ForwardAmount, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Body_Horizontal_f", m_TurnAmount, 0.1f, Time.deltaTime);
+
+        if (HeadFollowCamera && Camera.main != null)
+        {
+            Transform cameraTransform = Camera.main.transform;
+            var horizontal = cameraTransform.localEulerAngles.y / 180;
+            if (horizontal > 1f)
+                horizontal -= 2;
+            horizontal *= 5;
+            m_Animator.SetFloat("Head_Horizontal_f", horizontal);
+
+            var vertical = cameraTransform.localEulerAngles.x / 180;
+            if (vertical > 1f)
+                vertical -= 2;
+            vertical *= 5;
+            m_Animator.SetFloat("Head_Vertical_f", -vertical);
+        }
 
         // the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
         // which affects the movement speed because of the root motion.
