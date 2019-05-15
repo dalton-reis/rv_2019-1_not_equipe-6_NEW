@@ -14,6 +14,8 @@ public class NPCQuestion : MonoBehaviour
 
     private AIFollowPersonSimplePeople aiFollowPerson;
 
+    public QuestionCanvasResult QuestionCanvasResult;
+
     private void Awake()
     {
         aiFollowPerson = GetComponent<AIFollowPersonSimplePeople>();
@@ -44,6 +46,7 @@ public class NPCQuestion : MonoBehaviour
         aiFollowPath.Stop = false;
         MainCharacter.GetComponent<LookAt>().m_Target = null;
 
+        QuestionCanvasResult.Answer(isCorrect);
         aiFollowPerson.QuestionCanvas.SetActive(false);
         if (isCorrect)
             aiFollowPerson.CharacterToFollow = MainCharacter.GetComponent<SimplePeopleCharacter>();
