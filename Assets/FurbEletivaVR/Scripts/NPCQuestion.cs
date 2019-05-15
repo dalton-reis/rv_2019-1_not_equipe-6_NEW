@@ -15,6 +15,7 @@ public class NPCQuestion : MonoBehaviour
     private AIFollowPersonSimplePeople aiFollowPerson;
 
     public QuestionCanvasResult QuestionCanvasResult;
+    public PointsCanvas PointsCanvas;
 
     private void Awake()
     {
@@ -49,6 +50,16 @@ public class NPCQuestion : MonoBehaviour
         QuestionCanvasResult.Answer(isCorrect);
         aiFollowPerson.QuestionCanvas.SetActive(false);
         if (isCorrect)
+        {
             aiFollowPerson.CharacterToFollow = MainCharacter.GetComponent<SimplePeopleCharacter>();
+
+            GameManager.Instance.Ok++;
+            StartCoroutine(PointsCanvas.Ok());
+        }
+        else
+        {
+            GameManager.Instance.Fail++;
+            StartCoroutine(PointsCanvas.Fail());
+        }
     }
 }
