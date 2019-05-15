@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.FurbEletivaVR.Scripts.ExtensionMethods;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class SimplePeopleCharacter : MonoBehaviour
     [SerializeField] float m_MoveSpeedMultiplier = 1f;
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     [SerializeField] float m_GroundCheckDistance = 0.1f;
+    public Transform lookAt;
     public bool HeadFollowCamera = false;
 
     Rigidbody m_Rigidbody;
@@ -120,7 +122,20 @@ public class SimplePeopleCharacter : MonoBehaviour
         m_Animator.SetFloat("Speed_f", m_ForwardAmount, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Body_Horizontal_f", m_TurnAmount, 0.1f, Time.deltaTime);
 
-        if (HeadFollowCamera && Camera.main != null)
+        if (lookAt != null)
+        {
+            Vector3 targetDir = lookAt.position - transform.position;
+            float angle = Vector3.Angle(targetDir, transform.forward);
+
+            var cross = Vector3.Cross(targetDir, transform.forward);
+            if (cross.y > 0)
+                angle = -angle;
+
+            var horizontal = angle.Remap(-180, 180, -1, 1);
+
+            m_Animator.SetFloat("Head_Horizontal_f", horizontal * 2);
+        }
+        else if (HeadFollowCamera && Camera.main != null)
         {
             Transform cameraTransform = Camera.main.transform;
             var horizontal = cameraTransform.localEulerAngles.y / 180;
