@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/FurbEletivaVR/Scenes/Main.unity
-    guid: 60058fcf39e29364d88dfaa9358bbc7e
+    path: Assets/FurbEletivaVR/Scenes/City.unity
+    guid: 9a5101cdaeecc1f46a787915ae4375bf
   m_configObjects: {}
