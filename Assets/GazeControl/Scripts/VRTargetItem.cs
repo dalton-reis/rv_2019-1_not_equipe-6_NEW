@@ -11,6 +11,8 @@ public class VRTargetItem : MonoBehaviour
     //events that are invoked once we select this target item
     public UnityEvent m_completionEvent;
 
+    public bool Repeat = false;
+
     private Selectable m_selectable;
     private ISubmitHandler m_submit;
 

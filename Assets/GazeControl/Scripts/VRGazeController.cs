@@ -100,5 +100,13 @@ public class VRGazeController : MonoBehaviour {
 
         //radial progress completed, call completion events on target
         _target.GazeComplete(m_pointerEventData);
+
+        if (_target.Repeat)
+        {
+            _target = null;
+            _previousTarget = null;
+            _reticle.ResetProgress();
+            _reticle.SetPosition();
+        }
     }
 }

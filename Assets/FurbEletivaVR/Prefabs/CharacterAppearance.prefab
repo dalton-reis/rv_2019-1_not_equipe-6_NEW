@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8133987733166286275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2036232630847223895}
+  - component: {fileID: 7653686742770849392}
+  m_Layer: 0
+  m_Name: CharacterAppearance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2036232630847223895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133987733166286275}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.179657, y: -0.6299763, z: 12.439512}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7653686742770849392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133987733166286275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d17378b808fc524faacc7e5e120d64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Body: {fileID: 0}
+  MeshAmount: 14
+  CharacterModels:
+  - Name: "Garota de biqu\xEDni"
+    MeshRendererIndex: 13
+    Materials:
+    - {fileID: 2100000, guid: a40e1f49699c0da4b878646e3acdfad8, type: 2}
+    - {fileID: 2100000, guid: f272ce62be4ec864ebc61d4f76aaf72d, type: 2}
+    - {fileID: 2100000, guid: 8af51bb917d050248824ca53d2882232, type: 2}
+  - Name: "Homem de neg\xF3cios"
+    MeshRendererIndex: 0
+    Materials:
+    - {fileID: 2100000, guid: 632309c76598ef2439d70d47bb507f87, type: 2}
+    - {fileID: 2100000, guid: af9d542d86ca4fc4f842a8266577ae5e, type: 2}
+    - {fileID: 2100000, guid: 497bbddce010fea4da3dcb5c5210ad16, type: 2}
+  - Name: "M\xE9dica"
+    MeshRendererIndex: 13
+    Materials:
+    - {fileID: 2100000, guid: fbe960bc30150b14789f737d9e137d68, type: 2}
+    - {fileID: 2100000, guid: eb10910f153c6cc4585a14616bd3d32e, type: 2}
+    - {fileID: 2100000, guid: ce7f710feeb678b41b9487e80c4b85dd, type: 2}
+  - Name: Bombeiro
+    MeshRendererIndex: 1
+    Materials:
+    - {fileID: 2100000, guid: 0e4b2d6ae2b850b49b0656b7800ae781, type: 2}
+    - {fileID: 2100000, guid: 6763e2453e31b954baad42c6744542eb, type: 2}
+    - {fileID: 2100000, guid: 74c980510c9fc1448925d82146dbe970, type: 2}
+  - Name: Vagabundo
+    MeshRendererIndex: 2
+    Materials:
+    - {fileID: 2100000, guid: ebd39126b7940674a9d4bd57cfcf7c84, type: 2}
+    - {fileID: 2100000, guid: a957b2014b3d77f45b29b86d7b81bb12, type: 2}
+    - {fileID: 2100000, guid: 04e7e7e0d3ed9ea4f9958cc5bbd617d2, type: 2}
+  - Name: Dona de casa
+    MeshRendererIndex: 13
+    Materials:
+    - {fileID: 2100000, guid: 19d219331b821bc45933542ccf0cc7d1, type: 2}
+    - {fileID: 2100000, guid: 8cc76dc90b7d0074e87b2906e55728e6, type: 2}
+    - {fileID: 2100000, guid: a462dd395d6f79e44be174e20a83f503, type: 2}
+  - Name: Policial
+    MeshRendererIndex: 4
+    Materials:
+    - {fileID: 2100000, guid: 667b5996b51fbfc43878ad600665cb35, type: 2}
+    - {fileID: 2100000, guid: d646ede5609913a4588ca24d06adf6c1, type: 2}
+    - {fileID: 2100000, guid: e1c234326677b9a4cb4c94c1478ef5bb, type: 2}
+  - Name: Punk
+    MeshRendererIndex: 6
+    Materials:
+    - {fileID: 2100000, guid: cba661a44d31ac342b6e3f75f0701f9e, type: 2}
+    - {fileID: 2100000, guid: 848858d55d6e52e46a6c23cbb76aa006, type: 2}
+    - {fileID: 2100000, guid: 34c2d8b1b19253547badb55d82bb8103, type: 2}
+  - Name: Policial de Tumulto
+    MeshRendererIndex: 7
+    Materials:
+    - {fileID: 2100000, guid: 84c82249dcfff184bb4fe192c77f8dfc, type: 2}
+    - {fileID: 2100000, guid: e564cadaab360c44bb523da55bfcf833, type: 2}
+    - {fileID: 2100000, guid: 165360346bcdd014ea731da42ba4ca50, type: 2}
+  - Name: Trabalhador da estrada
+    MeshRendererIndex: 8
+    Materials:
+    - {fileID: 2100000, guid: 27d5bc9fe48a1ba4f8389809b897e6cb, type: 2}
+    - {fileID: 2100000, guid: 90dcbab6fadc3d84db8a80a47e8012cf, type: 2}
+    - {fileID: 2100000, guid: 7cbaac20d34fa5d4eb775ebf3e14e643, type: 2}
+  - Name: Xerife
+    MeshRendererIndex: 10
+    Materials:
+    - {fileID: 2100000, guid: ed9e2c73ccbf428488411e4a5dac4fbe, type: 2}
+    - {fileID: 2100000, guid: 76788f53b40c9be4c82b69772ec902d5, type: 2}
+    - {fileID: 2100000, guid: 3e261cbaa13c2004a9641ce336ac1956, type: 2}
+  - Name: Homem de rua
+    MeshRendererIndex: 11
+    Materials:
+    - {fileID: 2100000, guid: 9c77614920c821e4d9c041c7e28e46da, type: 2}
+    - {fileID: 2100000, guid: 2b6ead84d021bd6428c1293d7cfa9605, type: 2}
+    - {fileID: 2100000, guid: 8ec5bad8a39cca0489133bbdf102199c, type: 2}
+  - Name: Caminhoneiro
+    MeshRendererIndex: 12
+    Materials:
+    - {fileID: 2100000, guid: c0ed59d52348d33419dc8c8afe08cf0e, type: 2}
+    - {fileID: 2100000, guid: b8fdf90f8c6cfbb42825bda24aeb0f5c, type: 2}
+    - {fileID: 2100000, guid: a3608c30874ee9141b8628738b469096, type: 2}
+  - Name: "Gar\xE7onete"
+    MeshRendererIndex: 13
+    Materials:
+    - {fileID: 2100000, guid: 95db71c87bb7ddc43a6594071030bc9c, type: 2}
+    - {fileID: 2100000, guid: 7a72a6e6dc8f7894b982c3d079fd3272, type: 2}
+    - {fileID: 2100000, guid: 3d7b59a287cb2c444baeeaaaba1f7468, type: 2}
