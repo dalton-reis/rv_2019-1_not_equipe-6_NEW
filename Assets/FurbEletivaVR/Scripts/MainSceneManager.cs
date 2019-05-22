@@ -18,7 +18,16 @@ public class MainSceneManager : MonoBehaviour
 
     public void ChangeToCityScene()
     {
+        ResetGameData();
+
         SceneManager.LoadScene("City", LoadSceneMode.Single);
+    }
+
+    private static void ResetGameData()
+    {
+        var gameManager = GameManager.Instance;
+        gameManager.Ok = 0;
+        gameManager.Fail = 0;
     }
 
     public void PreviousModel()

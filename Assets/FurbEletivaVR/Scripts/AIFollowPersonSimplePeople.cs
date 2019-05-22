@@ -40,8 +40,17 @@ public class AIFollowPersonSimplePeople : MonoBehaviour
             return; // We are already following a character
 
         var characterToFollow = other.GetComponent<SimplePeopleCharacter>();
-        other.GetComponent<AIFollowPathSimplePeople>().Stop = true;
+
+        if (characterToFollow == null)
+            return; // Not a SimplePeopleCharacter
+
+        var aIFollowPathSimplePeople = other.GetComponent<AIFollowPathSimplePeople>();
+        if (aIFollowPathSimplePeople == null)
+            return;
+
+        aIFollowPathSimplePeople.Stop = true;
         QuestionCanvas.SetActive(true);
+        GetComponent<NPCQuestion>().StartQuestion();
 
         other.GetComponent<LookAt>().m_Target = transform;
     }
