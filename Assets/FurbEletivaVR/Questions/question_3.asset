@@ -17,7 +17,8 @@ MonoBehaviour:
     \xE9 dado por ficarem cercando as \xE1guas, e serem t\xE3o importantes para a
     sua conserva\xE7\xE3o quanto s\xE3o os c\xEDlios para os nossos olhos. O enunciado
     se refere ao qu\xEA?"
-  Time: 30
+  Time: 15
+  AnswerTime: 10
   Answers:
   - Text: "Mata atl\xE2ntica"
     IsCorrect: 0

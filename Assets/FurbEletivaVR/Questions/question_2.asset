@@ -18,11 +18,12 @@ MonoBehaviour:
     o volume dos rios e faz com que eles inundem. Pequenas a\xE7\xF5es podem significar
     grandes melhoras, e podemos come\xE7ar em casa. Qual das alternativas corresponde
     ao descarte correto dos materiais?"
-  Time: 40
+  Time: 15
+  AnswerTime: 15
   Answers:
   - Text: Lata de refrigerante - lixo do banheiro
     IsCorrect: 0
   - Text: 'Fios de cabelo - Ralo do banheiro '
     IsCorrect: 0
   - Text: "Rejeitos org\xE2nicos - horta "
-    IsCorrect: 0
+    IsCorrect: 1

@@ -15,7 +15,8 @@ MonoBehaviour:
   Text: "Um fen\xF4meno geogr\xE1fico nunca acontece isoladamente, mas sempre em intera\xE7\xE3o
     com outros fen\xF4menos pr\xF3ximos ou distantes e at\xE9 mesmo a partir da intera\xE7\xE3o
     humana. Qual \xE9 a ci\xEAncia que estuda a a\xE7\xE3o do ser humano sobre a natureza?"
-  Time: 30
+  Time: 10
+  AnswerTime: 10
   Answers:
   - Text: Biologia
     IsCorrect: 0
