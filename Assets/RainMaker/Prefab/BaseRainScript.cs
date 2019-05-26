@@ -34,7 +34,7 @@ namespace DigitalRuby.RainMaker
         public AudioMixerGroup RainSoundAudioMixer;
 
         [Tooltip("Intensity of rain (0-1)")]
-        [Range(0.0f, 1.0f)]
+        [Range(0.0f, 2.0f)]
         public float RainIntensity;
 
         [Tooltip("Rain particle system")]

@@ -6,7 +6,7 @@ AudioMixerController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RainMixer
+  m_Name: LightningMixer
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
@@ -18,7 +18,7 @@ AudioMixerController:
   m_ExposedParameters: []
   m_AudioMixerGroupViews:
   - guids:
-    - e8f16e27274a76b4fbef0906e8f16184
+    - 962914752b24c264aa6a633fcdb5fb4d
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -30,10 +30,10 @@ AudioMixerGroupController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: e8f16e27274a76b4fbef0906e8f16184
+  m_GroupID: 962914752b24c264aa6a633fcdb5fb4d
   m_Children: []
-  m_Volume: 61472d44bfc833647a56800de834ebd5
-  m_Pitch: 1d8777c1c7a541145a32af2e1799e42e
+  m_Volume: a596a7107edd2fd439f546325e8f3b5d
+  m_Pitch: b593c3af01863964a9ec69e31b4abfdb
   m_Effects:
   - {fileID: 24400004}
   m_UserColorIndex: 0
@@ -47,9 +47,9 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_EffectID: 2e78914aecdf32e41a2aa8879cb45c66
+  m_EffectID: 3768c243313b21d47bdcd99179b1993c
   m_EffectName: Attenuation
-  m_MixLevel: 712021ec5d7d9b94db6ebb91d4f32f1d
+  m_MixLevel: 221a3f1081e3f4d479f65b731ced7dc4
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -62,7 +62,7 @@ AudioMixerSnapshotController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
-  m_SnapshotID: 549a621b834b4af49b3cb0e08144677e
+  m_SnapshotID: f59c6a36d8638f649920c4432726969b
   m_FloatValues:
-    61472d44bfc833647a56800de834ebd5: 0
+    a596a7107edd2fd439f546325e8f3b5d: 20
   m_TransitionOverrides: {}
