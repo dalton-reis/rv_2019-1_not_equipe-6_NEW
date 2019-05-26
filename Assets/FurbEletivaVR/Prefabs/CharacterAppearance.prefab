@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Body: {fileID: 0}
+  ModelIndex: 0
+  MaterialIndex: 0
   MeshAmount: 14
   CharacterModels:
   - Name: "Garota de biqu\xEDni"
@@ -70,7 +72,7 @@ MonoBehaviour:
     - {fileID: 2100000, guid: 0e4b2d6ae2b850b49b0656b7800ae781, type: 2}
     - {fileID: 2100000, guid: 6763e2453e31b954baad42c6744542eb, type: 2}
     - {fileID: 2100000, guid: 74c980510c9fc1448925d82146dbe970, type: 2}
-  - Name: Vagabundo
+  - Name: Mendigo
     MeshRendererIndex: 2
     Materials:
     - {fileID: 2100000, guid: ebd39126b7940674a9d4bd57cfcf7c84, type: 2}
