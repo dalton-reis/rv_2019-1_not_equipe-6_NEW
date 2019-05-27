@@ -16,6 +16,9 @@ public class Question : MonoBehaviour
     public Color AnswerDisabledColor;
     public Color AnswerEnabledColor;
 
+    [HideInInspector]
+    public bool PauseCountdown = false;
+
     private QuestionData QuestionData;
 
     public UnityEvent Timeout;
@@ -51,6 +54,9 @@ public class Question : MonoBehaviour
             QuestionCountdownText.text = $"{remainingQuestionSeconds} s";
             remainingQuestionSeconds = Mathf.Max(0, remainingQuestionSeconds - 1);
             yield return new WaitForSeconds(remainingQuestionSeconds < 0 ? remainingQuestionSeconds : 1);
+
+            while (PauseCountdown) // Pause
+                yield return new WaitForSeconds(0.2f);
         }
 
         QuestionCountdownText.text = "";
@@ -71,6 +77,9 @@ public class Question : MonoBehaviour
             AnswerCountdownText.text = $"{remainingAnswerSeconds} s";
             remainingAnswerSeconds = Mathf.Max(0, remainingAnswerSeconds - 1);
             yield return new WaitForSeconds(remainingAnswerSeconds < 0 ? remainingAnswerSeconds : 1);
+
+            while (PauseCountdown) // Pause
+                yield return new WaitForSeconds(0.2f);
         }
 
         AnswerCountdownText.text = "";
