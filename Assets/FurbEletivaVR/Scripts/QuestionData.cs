@@ -7,6 +7,10 @@ public class QuestionData : ScriptableObject
 {
     [TextArea()]
     public string Text;
+
+    [Tooltip("Question audio to play")]
+    public AudioClip Audio;
+
     [Tooltip("Time to read the question (in seconds)")]
     public float Time = 10;
 

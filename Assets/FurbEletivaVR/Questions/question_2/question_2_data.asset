@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
-  m_Name: question_2
+  m_Name: question_2_data
   m_EditorClassIdentifier: 
   Text: "As causas mais comuns das enchentes nas cidades est\xE3o relacionadas com
     os efeitos nocivos de algumas pr\xE1ticas humanas sobre o meio ambiente. A primeira
@@ -18,12 +18,16 @@ MonoBehaviour:
     o volume dos rios e faz com que eles inundem. Pequenas a\xE7\xF5es podem significar
     grandes melhoras, e podemos come\xE7ar em casa. Qual das alternativas corresponde
     ao descarte correto dos materiais?"
+  Audio: {fileID: 8300000, guid: eb6253b2471acf84fa2924b1d612e09d, type: 3}
   Time: 15
   AnswerTime: 15
   Answers:
-  - Text: Lata de refrigerante - lixo do banheiro
+  - Text: Lata de refrigerante - Lixo do banheiro
+    Audio: {fileID: 8300000, guid: 1a93a8de0b62fb24889737cfa152f8b4, type: 3}
     IsCorrect: 0
-  - Text: 'Fios de cabelo - Ralo do banheiro '
+  - Text: Fios de cabelo - Ralo do banheiro
+    Audio: {fileID: 8300000, guid: ac0a2e015f5bed540b6455d3f922b42a, type: 3}
     IsCorrect: 0
-  - Text: "Rejeitos org\xE2nicos - horta "
+  - Text: "Rejeitos org\xE2nicos - Horta"
+    Audio: {fileID: 8300000, guid: 192d37b3e76d13f45a382d9b0fb11e01, type: 3}
     IsCorrect: 1
