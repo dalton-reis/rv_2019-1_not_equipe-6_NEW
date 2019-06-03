@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AudioSource))]
 public class Question : MonoBehaviour
 {
     public TMP_Text QuestionText;
@@ -14,11 +15,20 @@ public class Question : MonoBehaviour
     public TMP_Text AnswerCountdownText;
 
     public Color AnswerDisabledColor;
+    public Color AnswerHighlightedColor;
     public Color AnswerEnabledColor;
+
+    public float SecondsDelayToStartReadingAnswers = 1f;
+    public float SecondsDelayAfterReadingEachAnswer = 0.5f;
+
+    [HideInInspector]
+    public bool PauseCountdown = false;
 
     private QuestionData QuestionData;
 
     public UnityEvent Timeout;
+
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -27,6 +37,8 @@ public class Question : MonoBehaviour
             answerText.raycastTarget = false;
             answerText.color = AnswerDisabledColor;
         }
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void SetupQuestionData(QuestionData questionData)
@@ -46,6 +58,18 @@ public class Question : MonoBehaviour
     {
         var remainingQuestionSeconds = QuestionData.Time;
 
+        if (QuestionData.Audio != null)
+        {
+            // Adjust time
+            float readingLength = QuestionData.Audio.length + SecondsDelayToStartReadingAnswers;
+            if (readingLength > remainingQuestionSeconds)
+                remainingQuestionSeconds = readingLength;
+
+            audioSource.PlayOneShot(QuestionData.Audio);
+        }
+
+        remainingQuestionSeconds = Mathf.Ceil(remainingQuestionSeconds);
+
         while (remainingQuestionSeconds > 0)
         {
             QuestionCountdownText.text = $"{remainingQuestionSeconds} s";
@@ -54,6 +78,28 @@ public class Question : MonoBehaviour
         }
 
         QuestionCountdownText.text = "";
+
+        // Read Answers
+        for (int i = 0; i < QuestionData.Answers.Count; i++)
+        {
+            var answer = QuestionData.Answers[i];
+
+            if (answer.Audio == null)
+                continue;
+
+            TMP_Text answerText = AnswersText[i];
+            
+            // Highlight the answer
+            answerText.color = AnswerHighlightedColor;
+
+            // Play the answer audio
+            audioSource.PlayOneShot(answer.Audio);
+
+            yield return new WaitForSeconds(answer.Audio.length + SecondsDelayAfterReadingEachAnswer);
+
+            // De-Highlight the answer
+            answerText.color = AnswerDisabledColor;
+        }
 
         // Enable answers
         for (int i = 0; i < QuestionData.Answers.Count; i++)
@@ -71,6 +117,9 @@ public class Question : MonoBehaviour
             AnswerCountdownText.text = $"{remainingAnswerSeconds} s";
             remainingAnswerSeconds = Mathf.Max(0, remainingAnswerSeconds - 1);
             yield return new WaitForSeconds(remainingAnswerSeconds < 0 ? remainingAnswerSeconds : 1);
+
+            while (PauseCountdown) // Pause
+                yield return new WaitForSeconds(0.2f);
         }
 
         AnswerCountdownText.text = "";

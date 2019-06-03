@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
@@ -8,32 +7,11 @@ public class AIFollowPathSimplePeople : MonoBehaviour
 {
     public UnityEngine.AI.NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
     public SimplePeopleCharacter character { get; private set; } // the character we are controlling
-    public GameObject Path;
+    public Walkpath CurrentPath;
+
+    public AudioSource AudioToPlayWhenYouPressSomething;
 
     public bool Stop { get; set; }
-
-    private List<Vector3> path = new List<Vector3>();
-    private int current_path_point_index = 0;
-
-    public Vector3? CurrentPathPoint
-    {
-        get
-        {
-            if (current_path_point_index >= path.Count)
-                return null;
-
-            return path[current_path_point_index];
-        }
-    }
-
-    private void Awake()
-    {
-        List<Transform> path_points = new List<Transform>();
-        Path.GetComponentsInChildren<Transform>(path_points);
-        path_points.RemoveAt(0); // The first will be the transform of the 'walkpath'
-        foreach (var path_point in path_points)
-            path.Add(path_point.position);
-    }
 
     private void Start()
     {
@@ -55,23 +33,50 @@ public class AIFollowPathSimplePeople : MonoBehaviour
             return;
         }
 
-        if (CurrentPathPoint.HasValue)
-            agent.SetDestination(CurrentPathPoint.Value);
-
+        if (CurrentPath.CurrentPathPoint.HasValue)
+            agent.SetDestination(CurrentPath.CurrentPathPoint.Value);
 
         if ((agent.destination - gameObject.transform.position).magnitude > agent.stoppingDistance)
             character.Move(agent.desiredVelocity, false, false);
         else
         {
-            if (CurrentPathPoint.HasValue)
-                NextPoint();
+            if (CurrentPath.CurrentPathPoint.HasValue)
+                CurrentPath.NextPoint();
             else
                 character.Move(Vector3.zero, false, false);
         }
     }
 
-    public void NextPoint()
+    public void ReachedWaypathEnd()
     {
-        current_path_point_index++;
+        if (CurrentPath.DefaultWalkpath != null)
+        {
+            CurrentPath.DefaultWalkpath.LeftWasSelected.RemoveAllListeners();
+            CurrentPath.DefaultWalkpath.RightWasSelected.RemoveAllListeners();
+            CurrentPath = CurrentPath.DefaultWalkpath;
+            return;
+        }
+
+        if (CurrentPath.LeftWaypath != null
+                && CurrentPath.RightWaypath != null)
+        {
+            // Active the street sign
+            CurrentPath.StreetSign.SetActive(true);
+
+            // Setup events to change the current waypath
+            CurrentPath.LeftWasSelected.AddListener(() =>
+            {
+                AudioToPlayWhenYouPressSomething.Play();
+                CurrentPath.StreetSign.SetActive(false);
+                CurrentPath = CurrentPath.LeftWaypath;
+            });
+
+            CurrentPath.RightWasSelected.AddListener(() =>
+            {
+                AudioToPlayWhenYouPressSomething.Play();
+                CurrentPath.StreetSign.SetActive(false);
+                CurrentPath = CurrentPath.RightWaypath;
+            });
+        }
     }
 }

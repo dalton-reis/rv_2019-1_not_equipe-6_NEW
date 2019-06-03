@@ -34,6 +34,15 @@ public class NPCQuestion : MonoBehaviour
         startQuestionCoroutine = StartCoroutine(QuestionCanvas.StartQuestion());
     }
 
+    /// <summary>
+    /// Pauses the question and answer countdown
+    /// </summary>
+    /// <param name="pause">Should pause?</param>
+    public void PauseCountdown(bool pause)
+    {
+        QuestionCanvas.PauseCountdown = pause;
+    }
+
     public void AnswerQuestion(int index)
     {
         bool isCorrect = question.Answers[index].IsCorrect;
