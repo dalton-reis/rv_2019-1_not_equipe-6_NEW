@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
+  m_Name: question_5_data
+  m_EditorClassIdentifier: 
+  Text: "As causas mais comuns das enchentes nas cidades \xE9 a polui\xE7\xE3o excessiva,
+    que entope bueiros e por isso, aumenta o volume dos rios e faz com que eles inundem.
+    Pequenas a\xE7\xF5es podem significar grandes melhoras, e podemos come\xE7ar em
+    casa. Qual das alternativas corresponde ao descarte correto dos materiais:"
+  Audio: {fileID: 8300000, guid: ab2e09283cdd7f54bb7448df54af9e47, type: 3}
+  Time: 10
+  AnswerTime: 10
+  Answers:
+  - Text: Lata de refrigerante - lixo do banheiro
+    Audio: {fileID: 8300000, guid: a0e96ea5afb74d7479a57f2c4adf8d28, type: 3}
+    IsCorrect: 0
+  - Text: Fios de cabelo - ralo do banheiro
+    Audio: {fileID: 8300000, guid: 0372e6f51582c324cb886e2eeb98dec6, type: 3}
+    IsCorrect: 0
+  - Text: "Rejeitos org\xE2nicos -  horta"
+    Audio: {fileID: 8300000, guid: fb68688aa992a0a41aa8c35d7613911f, type: 3}
+    IsCorrect: 1

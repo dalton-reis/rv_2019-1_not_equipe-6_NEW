@@ -15,9 +15,29 @@ public class CityManager : MonoBehaviour
     public float MinLightningDistance = 5f;
     public float MaxLightningDistance = 20f;
 
+    [Header("Water")]
+    public Transform WaterTransform;
+    public float SecondsToMaxWater = 120.0f;
+    public float MinWaterHeight = -0.1f;
+    public float MaxWaterHeight = 1.5f;
+
+    private float elapsedSeconds = 0f;
+
     private void Start()
     {
         StartCoroutine(StartLightningLoop());
+    }
+
+    private void Update()
+    {
+        elapsedSeconds += Time.deltaTime;
+
+        if (elapsedSeconds > SecondsToMaxWater)
+            elapsedSeconds = SecondsToMaxWater;
+
+        var tempPos = WaterTransform.position;
+        tempPos.y = Mathf.Lerp(MinWaterHeight, MaxWaterHeight, elapsedSeconds / SecondsToMaxWater);
+        WaterTransform.position = tempPos;
     }
 
     public void ChangeToMainScene()

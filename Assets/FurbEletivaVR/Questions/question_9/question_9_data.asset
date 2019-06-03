@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
+  m_Name: question_9_data
+  m_EditorClassIdentifier: 
+  Text: "Qual a ferramenta digital que podemos utilizar para saber o n\xEDvel do rio
+    Itaja\xED-A\xE7u referente ao alagamento das ruas?"
+  Audio: {fileID: 8300000, guid: 2d25a95165412f34b8f3ea1924c14043, type: 3}
+  Time: 5
+  AnswerTime: 10
+  Answers:
+  - Text: Facebook
+    Audio: {fileID: 8300000, guid: 8e0dd089b2b0d434c9f241a2f6daf231, type: 3}
+    IsCorrect: 0
+  - Text: AlertaBlu
+    Audio: {fileID: 8300000, guid: 6185a9552d26b654692a83ff9c849b26, type: 3}
+    IsCorrect: 1
+  - Text: Blog do Jaime
+    Audio: {fileID: 8300000, guid: 1a0f3ddba64a2004788aeed739fd7865, type: 3}
+    IsCorrect: 0

@@ -12,21 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
   m_Name: question_3_data
   m_EditorClassIdentifier: 
-  Text: "A _____  _____ \xE9 um tipo de cobertura vegetal nativa que fica \xE0s margens
-    dos rios, igarap\xE9s, lagos, nascentes e represas. O nome composto _____ _____
-    \xE9 dado por ficarem cercando as \xE1guas, e serem t\xE3o importantes para a
-    sua conserva\xE7\xE3o quanto s\xE3o os c\xEDlios para os nossos olhos. O enunciado
-    se refere ao qu\xEA?"
-  Audio: {fileID: 8300000, guid: 788242c6f21f83847a0ec3a4d86e485a, type: 3}
-  Time: 15
+  Text: "Qual o \xF3rg\xE3o respons\xE1vel por executar a\xE7\xF5es preventivas, de
+    socorro, assistenciais e reconstrutivas destinadas a evitar ou minimizar os desastres
+    naturais?"
+  Audio: {fileID: 8300000, guid: 066a6ec0714482341afd5a712a77e6c1, type: 3}
+  Time: 10
   AnswerTime: 10
   Answers:
-  - Text: "Mata atl\xE2ntica"
-    Audio: {fileID: 8300000, guid: 26c8e6d735fd67f45a72768225b4b874, type: 3}
+  - Text: Bombeiros
+    Audio: {fileID: 8300000, guid: 0458e32359ea51f40b7182cf633ed967, type: 3}
     IsCorrect: 0
-  - Text: Mata ciliar
-    Audio: {fileID: 8300000, guid: 6dfadf2dc0655de42a923fe5689ed075, type: 3}
+  - Text: Defesa civil
+    Audio: {fileID: 8300000, guid: 4193646f175ef3f44b12557925556575, type: 3}
     IsCorrect: 1
-  - Text: Mata auxiliar
-    Audio: {fileID: 8300000, guid: ebc7d0b3dbb2e6942abd084ee8a2e1f5, type: 3}
+  - Text: "Pol\xEDcia militar"
+    Audio: {fileID: 8300000, guid: fcd2501d8943aa0429ea759cd6784c05, type: 3}
+    IsCorrect: 0
+  - Text: SAMU
+    Audio: {fileID: 8300000, guid: c8efa3e6d20a984438adbe81f3d06850, type: 3}
     IsCorrect: 0

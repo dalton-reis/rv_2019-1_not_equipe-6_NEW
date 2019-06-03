@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
+  m_Name: question_7_data
+  m_EditorClassIdentifier: 
+  Text: "Jogar lixo no lixo. Construir casas em locais seguros. Barragens de conten\xE7\xE3o.
+    Esses s\xE3o exemplos para preven\xE7\xE3o de:"
+  Audio: {fileID: 8300000, guid: 450e7cc659852504d94a91d1b78d0d57, type: 3}
+  Time: 3
+  AnswerTime: 10
+  Answers:
+  - Text: Enchentes
+    Audio: {fileID: 8300000, guid: edad360b68d140349ae61aff296c6abf, type: 3}
+    IsCorrect: 1
+  - Text: "Inc\xEAndios"
+    Audio: {fileID: 8300000, guid: 85feb5a2d243e3a4e89f8263b7d6e54b, type: 3}
+    IsCorrect: 0
+  - Text: Terremoto
+    Audio: {fileID: 8300000, guid: fa4f0daef13404941a3b3948a11f4e9e, type: 3}
+    IsCorrect: 0
+  - Text: Afogamento
+    Audio: {fileID: 8300000, guid: f38e5c9ee8151e247b1aa8a907fa9ff9, type: 3}
+    IsCorrect: 0

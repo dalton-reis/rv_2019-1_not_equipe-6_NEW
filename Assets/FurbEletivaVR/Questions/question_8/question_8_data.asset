@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
+  m_Name: question_8_data
+  m_EditorClassIdentifier: 
+  Text: "O que \xE9 enchente?"
+  Audio: {fileID: 8300000, guid: cf4006baaf52f694487ce95301cea30c, type: 3}
+  Time: 1
+  AnswerTime: 10
+  Answers:
+  - Text: "Fen\xF4meno natural que acontece em todos os rios"
+    Audio: {fileID: 8300000, guid: 79073e3e4c63ffb4e85619fbae0a5bb0, type: 3}
+    IsCorrect: 1
+  - Text: "Destrui\xE7\xE3o parcial ou total de um morro"
+    Audio: {fileID: 8300000, guid: 258af88e9cb209144ad6b387ce8fafc2, type: 3}
+    IsCorrect: 0
+  - Text: Desastre natural causado pelo homem
+    Audio: {fileID: 8300000, guid: 4974c5984bd01b24aba9befb253444f5, type: 3}
+    IsCorrect: 0
+  - Text: "Fen\xF4meno que destr\xF3i uma cidade causada pela eleva\xE7\xE3o dos rios"
+    Audio: {fileID: 8300000, guid: 12e64d702be2c7841916e6e78df41d65, type: 3}
+    IsCorrect: 0

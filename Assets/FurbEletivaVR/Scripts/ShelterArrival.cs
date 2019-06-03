@@ -45,7 +45,7 @@ public class ShelterArrival : MonoBehaviour
     {
         var gameManager = GameManager.Instance;
         var ok = gameManager.Ok;
-        float total = ok + gameManager.Fail;
+        float total = gameManager.Total;
 
         float okRatio = ok / total;
 

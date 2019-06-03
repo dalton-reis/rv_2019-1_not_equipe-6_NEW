@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "question", menuName = "FurbEletivaVR/New Question")]
 public class QuestionData : ScriptableObject
 {
-    [TextArea()]
+    [TextArea]
     public string Text;
 
     [Tooltip("Question audio to play")]

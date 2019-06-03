@@ -12,22 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
   m_Name: question_2_data
   m_EditorClassIdentifier: 
-  Text: "As causas mais comuns das enchentes nas cidades est\xE3o relacionadas com
-    os efeitos nocivos de algumas pr\xE1ticas humanas sobre o meio ambiente. A primeira
-    delas \xE9 a polui\xE7\xE3o excessiva, que entope bueiros e por isso, aumenta
-    o volume dos rios e faz com que eles inundem. Pequenas a\xE7\xF5es podem significar
-    grandes melhoras, e podemos come\xE7ar em casa. Qual das alternativas corresponde
-    ao descarte correto dos materiais?"
-  Audio: {fileID: 8300000, guid: eb6253b2471acf84fa2924b1d612e09d, type: 3}
-  Time: 15
-  AnswerTime: 15
+  Text: "O lixo descartado nas ruas potencializa os impactos das enchentes \xE0 popula\xE7\xE3o.
+    Os res\xEDduos contaminam a \xE1gua e servem de abrigo e alimento para animais
+    e insetos que s\xE3o vetores de doen\xE7as. Quais pr\xE1ticas posso desenvolver
+    para a diminui\xE7\xE3o de desastres naturais?"
+  Audio: {fileID: 8300000, guid: b15e414832df8314f8fb6937ae5a8706, type: 3}
+  Time: 10
+  AnswerTime: 10
   Answers:
-  - Text: Lata de refrigerante - Lixo do banheiro
-    Audio: {fileID: 8300000, guid: 1a93a8de0b62fb24889737cfa152f8b4, type: 3}
+  - Text: "Deixar os lixos jogados no ch\xE3o"
+    Audio: {fileID: 8300000, guid: 5af1c55f17243e844971c8797a057349, type: 3}
     IsCorrect: 0
-  - Text: Fios de cabelo - Ralo do banheiro
-    Audio: {fileID: 8300000, guid: ac0a2e015f5bed540b6455d3f922b42a, type: 3}
+  - Text: "Juntar os restos de comidas com os pap\xE9is numa mesma sacola"
+    Audio: {fileID: 8300000, guid: 6e2c0d0910f9f91429b9c6b4806b5c27, type: 3}
     IsCorrect: 0
-  - Text: "Rejeitos org\xE2nicos - Horta"
-    Audio: {fileID: 8300000, guid: 192d37b3e76d13f45a382d9b0fb11e01, type: 3}
+  - Text: "Separar o res\xEDduo org\xE2nico do reciclado"
+    Audio: {fileID: 8300000, guid: cca75494307be5b4ca32c46325bcfb1c, type: 3}
     IsCorrect: 1

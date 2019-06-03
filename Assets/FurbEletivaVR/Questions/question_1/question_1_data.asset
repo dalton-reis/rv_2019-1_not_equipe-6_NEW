@@ -12,19 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
   m_Name: question_1_data
   m_EditorClassIdentifier: 
-  Text: "Um fen\xF4meno geogr\xE1fico nunca acontece isoladamente, mas sempre em intera\xE7\xE3o
-    com outros fen\xF4menos pr\xF3ximos ou distantes e at\xE9 mesmo a partir da intera\xE7\xE3o
-    humana. Qual \xE9 a ci\xEAncia que estuda a a\xE7\xE3o do ser humano sobre a natureza?"
-  Audio: {fileID: 8300000, guid: 40fddef9451393646ad514fdfd7f37cb, type: 3}
-  Time: 10
+  Text: "Existem produtos biodegrad\xE1veis e n\xE3o-biodegrad\xE1veis, qual \xE9
+    a alternativa que corresponde a defini\xE7\xE3o correta do termo biodegrad\xE1vel?"
+  Audio: {fileID: 8300000, guid: 4388023b58de13d4ab7a6699c12c670e, type: 3}
+  Time: 8
   AnswerTime: 10
   Answers:
-  - Text: Biologia
-    Audio: {fileID: 8300000, guid: 54ebed36bfec3b947ab8c1793cc38241, type: 3}
-    IsCorrect: 0
-  - Text: Antropia
-    Audio: {fileID: 8300000, guid: b776fbdea4d8f06488d92f7c6f2b6027, type: 3}
+  - Text: "Materiais de decomposi\xE7\xE3o natural, que acontece com a ajuda de bact\xE9rias
+      e fungos.  \xC9 o material que \xE9 produzido a partir de plantas e animais"
+    Audio: {fileID: 8300000, guid: 10de9f0492464e7419d7531cdb3171df, type: 3}
     IsCorrect: 1
-  - Text: Sociologia
-    Audio: {fileID: 8300000, guid: f4451adacb84b1549aec274e567e4117, type: 3}
+  - Text: "Materiais que a sua produ\xE7\xE3o \xE9 artificial, por exemplo: pl\xE1sticos,
+      latas, res\xEDduos da ind\xFAstria e garrafas de vidro"
+    Audio: {fileID: 8300000, guid: c8df4986a3144f84d95f3f934027fd9f, type: 3}
     IsCorrect: 0
