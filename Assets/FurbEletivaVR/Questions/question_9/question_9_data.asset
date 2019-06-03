@@ -15,7 +15,7 @@ MonoBehaviour:
   Text: "Qual a ferramenta digital que podemos utilizar para saber o n\xEDvel do rio
     Itaja\xED-A\xE7u referente ao alagamento das ruas?"
   Audio: {fileID: 8300000, guid: 2d25a95165412f34b8f3ea1924c14043, type: 3}
-  Time: 10
+  Time: 5
   AnswerTime: 10
   Answers:
   - Text: Facebook

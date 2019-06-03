@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: "O que \xE9 enchente?"
   Audio: {fileID: 8300000, guid: cf4006baaf52f694487ce95301cea30c, type: 3}
-  Time: 10
+  Time: 1
   AnswerTime: 10
   Answers:
   - Text: "Fen\xF4meno natural que acontece em todos os rios"

@@ -15,7 +15,7 @@ MonoBehaviour:
   Text: "Jogar lixo no lixo. Construir casas em locais seguros. Barragens de conten\xE7\xE3o.
     Esses s\xE3o exemplos para preven\xE7\xE3o de:"
   Audio: {fileID: 8300000, guid: 450e7cc659852504d94a91d1b78d0d57, type: 3}
-  Time: 10
+  Time: 3
   AnswerTime: 10
   Answers:
   - Text: Enchentes

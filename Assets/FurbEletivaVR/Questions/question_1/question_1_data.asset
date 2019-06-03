@@ -15,7 +15,7 @@ MonoBehaviour:
   Text: "Existem produtos biodegrad\xE1veis e n\xE3o-biodegrad\xE1veis, qual \xE9
     a alternativa que corresponde a defini\xE7\xE3o correta do termo biodegrad\xE1vel?"
   Audio: {fileID: 8300000, guid: 4388023b58de13d4ab7a6699c12c670e, type: 3}
-  Time: 10
+  Time: 8
   AnswerTime: 10
   Answers:
   - Text: "Materiais de decomposi\xE7\xE3o natural, que acontece com a ajuda de bact\xE9rias
