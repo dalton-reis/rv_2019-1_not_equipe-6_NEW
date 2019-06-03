@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
+  m_Name: question_4_data
+  m_EditorClassIdentifier: 
+  Text: "Um fen\xF4meno geogr\xE1fico nunca acontece isoladamente, mas sempre em intera\xE7\xE3o
+    com outros fen\xF4menos pr\xF3ximos ou distantes e at\xE9 mesmo a partir da intera\xE7\xE3o
+    humana. Qual \xE9 a ci\xEAncia que estuda a a\xE7\xE3o do ser humano sobre a natureza:"
+  Audio: {fileID: 8300000, guid: 5741b29831a32b5449ff6cb2b963d8a6, type: 3}
+  Time: 10
+  AnswerTime: 10
+  Answers:
+  - Text: Biologia
+    Audio: {fileID: 8300000, guid: f26137d4375b1354f84d9766a6f37dcd, type: 3}
+    IsCorrect: 0
+  - Text: Antropia
+    Audio: {fileID: 8300000, guid: 08dac35a5f2f0f342b373c387a1aae39, type: 3}
+    IsCorrect: 1
+  - Text: Sociologia
+    Audio: {fileID: 8300000, guid: 584ccec3a3abd3548bb3ceeb83462679, type: 3}
+    IsCorrect: 0

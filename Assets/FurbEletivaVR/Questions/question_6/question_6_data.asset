@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f124a086d2ce458f36d4de2a747f7, type: 3}
+  m_Name: question_6_data
+  m_EditorClassIdentifier: 
+  Text: "A _____ _____ \xE9 um tipo de cobertura vegetal nativa que fica \xE0s margens
+    dos rios, igarap\xE9s, lagos, nascentes e represas. O nome composto _____ _____
+    \xE9 dado por ficarem cercando as \xE1guas, e serem t\xE3o importantes para a
+    sua conserva\xE7\xE3o quanto s\xE3o os c\xEDlios para os nossos olhos. O enunciado
+    se refere ao qu\xEA?"
+  Audio: {fileID: 8300000, guid: 974c8c48a8f49ad4a84c02aad24c9a12, type: 3}
+  Time: 10
+  AnswerTime: 10
+  Answers:
+  - Text: "Mata atl\xE2ntica"
+    Audio: {fileID: 8300000, guid: 201467aac010518458d958f3855316e4, type: 3}
+    IsCorrect: 0
+  - Text: Mata ciliar
+    Audio: {fileID: 8300000, guid: dd3bb2f7514e625489019c3d4536329b, type: 3}
+    IsCorrect: 1
+  - Text: Mata auxiliar
+    Audio: {fileID: 8300000, guid: 593cfe09b7945964dbfd267a990f6e8d, type: 3}
+    IsCorrect: 0

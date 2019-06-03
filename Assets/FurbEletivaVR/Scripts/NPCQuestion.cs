@@ -24,13 +24,9 @@ public class NPCQuestion : MonoBehaviour
         aiFollowPerson.QuestionCanvas.SetActive(false);
     }
 
-    private void Start()
-    {
-        QuestionCanvas.SetupQuestionData(question);
-    }
-
     public void StartQuestion()
     {
+        QuestionCanvas.SetupQuestionData(question);
         startQuestionCoroutine = StartCoroutine(QuestionCanvas.StartQuestion());
     }
 
