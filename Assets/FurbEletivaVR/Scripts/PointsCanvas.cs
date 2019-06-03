@@ -5,36 +5,29 @@ using System.Collections;
 
 public class PointsCanvas : MonoBehaviour
 {
-    public TMP_Text okText;
-    public TMP_Text failText;
+    public TMP_Text PointsText;
+
+    GameManager gameManager;
 
     private void Awake()
     {
-        changeOkAndFail();
+        PointsText.text = "";
+
+        gameManager = GameManager.Instance;
     }
 
     public IEnumerator Ok()
     {
-        okText.text = "+1";
+        PointsText.text = "+1";
         yield return new WaitForSeconds(3f);
-        changeOkAndFail($"+1\n{GameManager.Instance.Ok}", $"\n{GameManager.Instance.Fail}");
+        PointsText.text = $"+1\n{gameManager.Ok}/{gameManager.Total}";
         yield return new WaitForSeconds(2f);
-        changeOkAndFail();
+        PointsText.text = "";
     }
 
     public IEnumerator Fail()
     {
-        failText.text = "+1";
-        yield return new WaitForSeconds(3f);
-        changeOkAndFail($"\n{GameManager.Instance.Ok}", $"+1\n{GameManager.Instance.Fail}");
-        yield return new WaitForSeconds(2f);
-        changeOkAndFail();
-    }
-
-    private void changeOkAndFail(string okStr = "", string failStr = "")
-    {
-        okText.text = okStr;
-        failText.text = failStr;
+        yield break;
     }
 
 }

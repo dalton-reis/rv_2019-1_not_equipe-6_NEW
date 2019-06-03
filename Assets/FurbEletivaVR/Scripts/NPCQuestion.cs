@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(AIFollowPersonSimplePeople))]
 public class NPCQuestion : MonoBehaviour
@@ -14,6 +15,10 @@ public class NPCQuestion : MonoBehaviour
     public QuestionCanvasResult QuestionCanvasResult;
     public PointsCanvas PointsCanvas;
 
+    public AudioMixer LightningMixer;
+    public float NormalLightningVolume = 20.0f;
+    public float ReadingLightningVolume = 0f;
+
     private Coroutine startQuestionCoroutine;
 
     private void Awake()
@@ -26,6 +31,7 @@ public class NPCQuestion : MonoBehaviour
 
     public void StartQuestion()
     {
+        LightningMixer.SetFloat("Volume", ReadingLightningVolume);
         QuestionCanvas.SetupQuestionData(question);
         startQuestionCoroutine = StartCoroutine(QuestionCanvas.StartQuestion());
     }
@@ -48,6 +54,8 @@ public class NPCQuestion : MonoBehaviour
 
     public void AnswerAssert(bool isCorrect)
     {
+        LightningMixer.SetFloat("Volume", NormalLightningVolume);
+
         var aiFollowPath = MainCharacter.GetComponent<AIFollowPathSimplePeople>();
         aiFollowPath.Stop = false;
         MainCharacter.GetComponent<LookAt>().m_Target = null;
@@ -62,10 +70,7 @@ public class NPCQuestion : MonoBehaviour
             StartCoroutine(PointsCanvas.Ok());
         }
         else
-        {
-            GameManager.Instance.Fail++;
             StartCoroutine(PointsCanvas.Fail());
-        }
 
         if (startQuestionCoroutine != null)
             StopCoroutine(startQuestionCoroutine);

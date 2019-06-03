@@ -27,7 +27,7 @@ public class MainSceneManager : MonoBehaviour
     {
         var gameManager = GameManager.Instance;
         gameManager.Ok = 0;
-        gameManager.Fail = 0;
+        gameManager.Total = 0;
     }
 
     public void PreviousModel()

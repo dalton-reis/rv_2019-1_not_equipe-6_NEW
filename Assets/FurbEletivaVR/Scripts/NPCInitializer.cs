@@ -9,10 +9,10 @@ public class NPCInitializer : MonoBehaviour
     private void Awake()
     {
         if (CharacterAppearance == null)
-            CharacterAppearance = GetComponentInChildren<CharacterAppearance>();
+            CharacterAppearance = GetComponentInChildren<CharacterAppearance>(true);
 
         if (NPCQuestion == null)
-            NPCQuestion = GetComponentInChildren<NPCQuestion>();
+            NPCQuestion = GetComponentInChildren<NPCQuestion>(true);
     }
 
     private void Start()
@@ -22,6 +22,8 @@ public class NPCInitializer : MonoBehaviour
 
         // Random Question
         NPCQuestion.question = QuestionDatabase.Instance.GetQuestion();
+
+        GameManager.Instance.Total++;
     }
 
     private void RandomizeCharacterAppearance()
