@@ -19,6 +19,8 @@ public class NPCQuestion : MonoBehaviour
     public float NormalLightningVolume = 20.0f;
     public float ReadingLightningVolume = 0f;
 
+    public GameObject Map;
+
     private Coroutine startQuestionCoroutine;
 
     private void Awake()
@@ -34,6 +36,8 @@ public class NPCQuestion : MonoBehaviour
         LightningMixer.SetFloat("Volume", ReadingLightningVolume);
         QuestionCanvas.SetupQuestionData(question);
         startQuestionCoroutine = StartCoroutine(QuestionCanvas.StartQuestion());
+
+        Map.SetActive(false);
     }
 
     /// <summary>
@@ -55,6 +59,7 @@ public class NPCQuestion : MonoBehaviour
     public void AnswerAssert(bool isCorrect)
     {
         LightningMixer.SetFloat("Volume", NormalLightningVolume);
+        Map.SetActive(true);
 
         var aiFollowPath = MainCharacter.GetComponent<AIFollowPathSimplePeople>();
         aiFollowPath.Stop = false;

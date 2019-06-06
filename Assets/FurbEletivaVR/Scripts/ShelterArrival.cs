@@ -24,6 +24,8 @@ public class ShelterArrival : MonoBehaviour
     public AudioClip FireworksLaunchAudio;
     public AudioClip FireworksExplodeAudio;
 
+    public GameObject Map;
+
     private bool trigger = false;
 
     private void OnTriggerEnter(Collider other)
@@ -39,6 +41,9 @@ public class ShelterArrival : MonoBehaviour
         // Enable the raycast on the graphics
         foreach (var graphic in graphicsToEnableRaycast)
             graphic.raycastTarget = true;
+
+        // Remove map
+        Map.SetActive(false);
     }
 
     private void Congratulations()
@@ -49,26 +54,33 @@ public class ShelterArrival : MonoBehaviour
 
         float okRatio = ok / total;
 
-        if (okRatio < 0.5f)
+        if (okRatio < 0.001)
+        {
+            // Saved no one
+            CongratulationsBoardText.text = "<color=#e03d1f><b>Poxa</b></color>\n" +
+                $"Você não conseguiu salvar ninguém!";
+        }
+        else if (okRatio < 0.5f)
         {
             // Saved a few people
             CongratulationsBoardText.text = "<color=#e03d1f><b>Poxa</b></color>\n" +
-                $"Você só conseguiu salvar {ok} das {total} pessoas!";
+                $"Você só conseguiu salvar {ok} pessoas!";
         }
         else if (okRatio < 0.9f)
         {
             // Saved almost everyone
             CongratulationsBoardText.text = "<color=#e03d1f><b>Muito bom</b></color>\n" +
-                $"Você conseguiu salvar {ok} das {total} pessoas!";
+                $"Você conseguiu salvar {ok} pessoas!";
         }
         else if (okRatio < 1.1f)
         {
             // Saved everyone
             CongratulationsBoardText.text = "<color=#e03d1f><b>Parabéns!</b></color>\n" +
-                $"Você salvou todas as {total} pessoas!";
+                $"Você salvou todas as pessoas!";
         }
 
-        StartCoroutine(StartEndlessFireworks());
+        if (okRatio > 0.5f)
+            StartCoroutine(StartEndlessFireworks());
     }
 
     private void PeopleWave()
